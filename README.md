@@ -1,66 +1,83 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<h1> Teste Dev FullStack Junior Log Smart </h1>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+### Descrição
 
-## About Laravel
+O Projeto é um teste para a vaga de Dev FullStack da empresa Log Smart, a ideia é um sistema com um crud de amigos e um sorteio desses amigos para um amigo secreto. O sistema foi desenvolvido com o framework laravel e com tailwindCss no front para dar uma ajudada.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Como Utilizar
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Para ultilizar o projeto é preciso ter sua maquina preparada para receber um projeto laravel, então se você não tem um ambiente pronto para isso segue o link de como configurar [Config Ambiente Laravel](https://www.youtube.com/watch?v=_h7pq2uc6e4&pp=ygUdY29uZmlndXJhbmRvIGFtYmllbnRlIGxhcmF2ZWw%3D). Outra coisa que você precisa para poder ultilizar o sistema é o git para poder realizar o clone do projeto então segue o link para instalar o git [Git](https://git-scm.com/).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Agora que temos tudo certo podemos fazer o clone do projeto, abra o seu terminal e ultize o seguinte comando para isso:
 
-## Learning Laravel
+```bash 
+    git clone https://github.com/Lipe-pard/testLogSmart.git
+    cd testLogSmart
+```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Agora dentro estando dentro do projeto basta rodar os comando para instalar as dependencias do projeto:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+```bash 
+    composer install
+    npm install
+```
+Caso de erro ao rodar o comando npm install pode ser que precisse instalar o node, segue link para realizar a instalação [Node](https://nodejs.org/pt).
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Agora temos que acessar o projeto para poder terminar as configs, dentro do projeto temos o arquivo <b>.env.example</b>, pode copiar ele e colar dentro do projeto mesmo e mudar o nome do arquivo de copia para apenas <b>.env</b>. Dentro do .env é onde configuramos a conexão com nosso banco de dados, então dentro do seu .env localize esse trecho:
 
-## Laravel Sponsors
+```bash 
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=laravel
+    DB_USERNAME=root
+    DB_PASSWORD=
+```
+Ele vai estar assim então coloque as informações do seu banco de dados nos campos da seguinte forma:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+```bash 
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE= nome do seu banco de dados
+    DB_USERNAME= usuario do seu banco de dados
+    DB_PASSWORD= senha do seu banco de dados
+```
+Se você seguiu a instalação do ambiente laravel sugerida não vai haver a nescessidade de modificar o host e a porta. Agora com tudo configurado podemos rodar as migrations para criar as nossas tabelas:
 
-### Premium Partners
+```bash
+    php artisan migrate
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+Pronto agora é só colocar nosso servidor para rodar e desfrutar do sistema, primeiro rode o comando:
 
-## Contributing
+```bash 
+    php artisan serve
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+e em outro terminal rode o seguinte comando:
 
-## Code of Conduct
+```bash 
+    npm run dev
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+O laravel é um framework muito bom que ajuda e exibe os erros de forma bem explicita o que deixa facil de resolver qualquer erro. Espero que não ocorra nenhum erro 😁.
 
-## Security Vulnerabilities
+### Técnologias Utilizadas
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+<div>
+    <img src="https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="icon"/>
+    <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="icon"/>
+    <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" alt="icon"/>
+</div>
 
-## License
+### Contatos
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<div style="display: inline-block">
+    <a href="mailto:pardinhorh@gmail.com">
+      <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"/>
+    </a>
+    <a href="https://www.linkedin.com/in/felipe-pardinho-695170245/">
+      <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/>
+    </a>
+</div>
