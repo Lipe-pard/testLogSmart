@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Friend;
+use App\Models\SecretFriend;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -84,4 +85,56 @@ class FriendController extends Controller
 
         return response()->json($friends);
     }
+
+    public function randomFriends(){
+        $friends = Friend::all()->pluck('id')->toArray();
+
+        if (count($friends) < 2) {
+            return redirect()->back()->with('error', 'Necessário pelo menos 2 amigos para sortear');
+        }
+
+        $gifs = $friends;
+
+        do {
+            shuffle($gifs);
+            $valid = true;
+
+            foreach ($friends as $index => $friend) {
+                if ($friend == $gifs[$index]) {
+                    $valid = false;
+                    break;
+                }
+            }
+        } while (!$valid);
+
+        SecretFriend::truncate();
+
+        foreach ($friends as $index => $friend) {
+            SecretFriend::create([
+                'recivers_id' => $friend,
+                'gifs_id' => $gifs[$index],
+            ]);
+        }
+
+        $secretFriends = SecretFriend::all();
+
+        foreach ($secretFriends as $secretFriend) {
+            $secretFriend->recivers_id = Friend::find($secretFriend->recivers_id)->name;
+            $secretFriend->gifs_id = Friend::find($secretFriend->gifs_id)->name;
+        }
+
+        return view('friends.secret-friends', compact('secretFriends'));
+    }
+
+    public function resultSecretFriends(){
+        $secretFriends = SecretFriend::all();
+
+        foreach ($secretFriends as $secretFriend) {
+            $secretFriend->recivers_id = Friend::find($secretFriend->recivers_id)->name;
+            $secretFriend->gifs_id = Friend::find($secretFriend->gifs_id)->name;
+        }
+
+        return view('friends.secret-friends', compact('secretFriends'));
+    }
+
 }
