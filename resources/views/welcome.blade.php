@@ -4,13 +4,18 @@
             <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded"><i class="fa-solid fa-user-plus"></i></button>
         </a>
 
-        <div class="w-1/3 flex space-x-2 justify-end">
-            <input
-            type="text"
-            class="w-1/2 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
-            placeholder="Pesquisar"
-            id="search"
-            />
+        
+
+        <div class="w-1/3 flex space-x-2 justify-end items-center">
+            <div class="relative w-1/2">
+                <i class="fa-solid fa-x text-gray-300 absolute top-1/2 right-2 transform -translate-y-1/2 cursor-pointer text-sm hidden" id="clear"></i>
+                <input
+                type="text"
+                class="w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
+                placeholder="Pesquisar"
+                id="search"
+                />
+            </div>
             <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded" id="btnSearch">Pesquisar</button>
         </div>
     </div>

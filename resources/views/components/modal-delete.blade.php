@@ -13,12 +13,12 @@
                 </button>
             </div>
             <div class="p-4 w-3/4 mx-auto text-center">
-                <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                <svg class="mx-auto mb-4 text-gray-400 w-12 h-12" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
                 </svg>
                 <p class="text-sm text-gray-500">Você tem certeza de que deseja excluir o(a) <span class="font-bold text-indigo-600">{{ $name }}</span>? Esta ação não pode ser desfeita.</p>
             </div>
-            <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+            <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
                 <form action="{{ route('friends.destroy', $id) }}" method="POST">
                     @csrf
                     @method('DELETE')

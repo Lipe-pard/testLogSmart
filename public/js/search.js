@@ -40,6 +40,13 @@ $(document).ready(function() {
                     const modalId = $(this).attr('data-modal-hide');
                     $('#' + modalId).addClass('hidden');
                 });
+
+                let clear = $('#clear');
+                clear.removeClass('hidden');
+                clear.addClass('inline-flex');
+                clear.on('click', function() {
+                    window.location.reload();
+                })
             },
             error: function(error) {
                 console.log(error);
