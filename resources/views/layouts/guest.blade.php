@@ -18,12 +18,24 @@
         crossorigin="anonymous"
         referrerpolicy="no-referrer" />
 
+        <!-- Flowbite -->
+        <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
+
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans text-gray-900 antialiased">
+    <body class="font-sans text-gray-900 antialiased bg-gray-100">
         <div class="w-full h-screen flex items-center justify-center flex-col">
             {{ $slot }}
         </div>
     </body>
+    {{-- Jquery --}}
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    {{-- Flowbite --}}
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+    @stack('script')
+    <script>
+        const toast = document.getElementById('toast');
+        setTimeout(() => toast.classList.add('hidden'), 5000);
+    </script>
 </html>
